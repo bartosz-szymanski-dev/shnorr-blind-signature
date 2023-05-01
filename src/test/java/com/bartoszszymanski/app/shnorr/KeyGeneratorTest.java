@@ -6,10 +6,10 @@ import java.math.BigInteger;
 
 import static org.junit.Assert.*;
 
-public class ShnorrBlindSignatureKeyGenServiceTest {
+public class KeyGeneratorTest {
     @Test
     public void testGenerateKeyPair() {
-        ShnorrBlindSignatureKeyGenService keyGenService = new ShnorrBlindSignatureKeyGenService();
+        KeyGenerator keyGenService = new KeyGenerator();
         keyGenService.generateKeyPair();
 
         BigInteger privateKey = keyGenService.getPrivateKey();
@@ -21,7 +21,7 @@ public class ShnorrBlindSignatureKeyGenServiceTest {
 
     @Test
     public void testPublicKeyIsGeneratorRaisedToPrivateKey() {
-        ShnorrBlindSignatureKeyGenService keyGenService = new ShnorrBlindSignatureKeyGenService();
+        KeyGenerator keyGenService = new KeyGenerator();
         keyGenService.generateKeyPair();
 
         BigInteger p = keyGenService.getP();
@@ -34,7 +34,7 @@ public class ShnorrBlindSignatureKeyGenServiceTest {
 
     @Test
     public void testPrivateKeyIsValid() {
-        ShnorrBlindSignatureKeyGenService keyGenService = new ShnorrBlindSignatureKeyGenService();
+        KeyGenerator keyGenService = new KeyGenerator();
         keyGenService.generateKeyPair();
 
         BigInteger p = keyGenService.getP();
@@ -45,7 +45,7 @@ public class ShnorrBlindSignatureKeyGenServiceTest {
 
     @Test
     public void testPublicKeyIsValid() {
-        ShnorrBlindSignatureKeyGenService keyGenService = new ShnorrBlindSignatureKeyGenService();
+        KeyGenerator keyGenService = new KeyGenerator();
         keyGenService.generateKeyPair();
 
         BigInteger p = keyGenService.getP();

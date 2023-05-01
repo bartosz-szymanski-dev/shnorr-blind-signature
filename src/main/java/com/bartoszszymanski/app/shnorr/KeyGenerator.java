@@ -3,14 +3,14 @@ package com.bartoszszymanski.app.shnorr;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
-public class ShnorrBlindSignatureKeyGenService {
+public class KeyGenerator {
     private final SecureRandom secureRandom;
     private BigInteger p;
     private BigInteger g;
     private BigInteger x;
     private BigInteger y;
 
-    public ShnorrBlindSignatureKeyGenService() {
+    public KeyGenerator() {
         // Create a secure random number generator
         secureRandom = new SecureRandom();
     }
