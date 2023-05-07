@@ -24,9 +24,8 @@ public class BlindingFactorGeneratorTest {
                 BigInteger.ONE,
                 BigInteger.ONE
         );
-        BigInteger result = generator
-                .withLargePrimeNumberPair(largePrimeNumberPair)
-                .generate();
+        generator.withLargePrimeNumberPair(largePrimeNumberPair);
+        BigInteger result = generator.generate();
 
         assertTrue(result.compareTo(BigInteger.ONE) >= 0);
         assertTrue(result.compareTo(BigInteger.valueOf(3)) <= 0);

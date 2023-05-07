@@ -5,17 +5,11 @@ import com.bartoszszymanski.app.shnorr.Model.LargePrimeNumberPair;
 
 import java.math.BigInteger;
 
-public class KeyPairGenerator {
+public class KeyPairGenerator extends AbstractLargePrimeNumberPairDependent {
     private final RandomBigIntegerGenerator randomBigIntegerGenerator;
-    private LargePrimeNumberPair largePrimeNumberPair;
 
     public KeyPairGenerator(RandomBigIntegerGenerator randomBigIntegerGenerator) {
         this.randomBigIntegerGenerator = randomBigIntegerGenerator;
-    }
-
-    public KeyPairGenerator withLargePrimeNumberPair(LargePrimeNumberPair largePrimeNumberPair) {
-        this.largePrimeNumberPair = largePrimeNumberPair;
-        return this;
     }
 
     public KeyPair generate() {
@@ -26,12 +20,6 @@ public class KeyPairGenerator {
                 secretKey,
                 computePublicKey(secretKey)
         );
-    }
-
-    private void checkLargeNumberPair() {
-        if (this.largePrimeNumberPair == null) {
-            throw new RuntimeException("Large prime number pair should be set");
-        }
     }
 
     private BigInteger computeSecretKey() {

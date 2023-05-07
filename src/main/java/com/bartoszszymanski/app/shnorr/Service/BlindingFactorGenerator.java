@@ -4,21 +4,16 @@ import com.bartoszszymanski.app.shnorr.Model.LargePrimeNumberPair;
 
 import java.math.BigInteger;
 
-public class BlindingFactorGenerator {
+public class BlindingFactorGenerator extends AbstractLargePrimeNumberPairDependent {
     private final RandomBigIntegerGenerator randomBigIntegerGenerator;
-
-    private LargePrimeNumberPair largePrimeNumberPair;
 
     public BlindingFactorGenerator(RandomBigIntegerGenerator randomBigIntegerGenerator) {
         this.randomBigIntegerGenerator = randomBigIntegerGenerator;
     }
 
-    public BlindingFactorGenerator withLargePrimeNumberPair(LargePrimeNumberPair largePrimeNumberPair) {
-        this.largePrimeNumberPair = largePrimeNumberPair;
-        return this;
-    }
-
     public BigInteger generate() {
+        checkLargeNumberPair();
+
         BigInteger p = largePrimeNumberPair.getP();
         BigInteger r = randomBigIntegerGenerator.generate(
                 BigInteger.ONE,

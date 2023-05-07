@@ -25,9 +25,8 @@ public class KeyPairGeneratorTest {
                 BigInteger.ONE,
                 BigInteger.TWO
         );
-        KeyPair result = generator
-                .withLargePrimeNumberPair(largePrimeNumberPair)
-                .generate();
+        generator.withLargePrimeNumberPair(largePrimeNumberPair);
+        KeyPair result = generator.generate();
         assertEquals("secret key = 1", 0, result.getSecretKey().compareTo(BigInteger.ONE));
         assertEquals("public key = 2", 0, result.getPublicKey().compareTo(BigInteger.TWO));
         generator.withLargePrimeNumberPair(null);
