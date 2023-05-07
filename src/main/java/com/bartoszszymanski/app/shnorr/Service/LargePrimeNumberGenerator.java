@@ -17,7 +17,7 @@ public class LargePrimeNumberGenerator {
             h = g.modPow(p.subtract(BigInteger.ONE).divide(q), p);
         } while (h.equals(BigInteger.ONE));
 
-        return new LargePrimeNumberPair(p, q);
+        return new LargePrimeNumberPair(p, q, g);
     }
 
     private BigInteger calculateQ(BigInteger p) {

@@ -4,14 +4,15 @@ import java.math.BigInteger;
 
 public final class LargePrimeNumberPair {
     public static final int BIT_LENGTH = 1024;
-    public static final int CERTAINTY = 64;
 
     private final BigInteger p;
     private final BigInteger q;
+    private final BigInteger g;
 
-    public LargePrimeNumberPair(BigInteger p, BigInteger q) {
+    public LargePrimeNumberPair(BigInteger p, BigInteger q, BigInteger g) {
         this.p = p;
         this.q = q;
+        this.g = g;
     }
 
     public BigInteger getP() {
@@ -20,5 +21,9 @@ public final class LargePrimeNumberPair {
 
     public BigInteger getQ() {
         return q;
+    }
+
+    public BigInteger getG() {
+        return g;
     }
 }
